@@ -6,6 +6,7 @@
     --bg1: #445;
     --bg2:#22a6b3;
     --bg3: #95afc0;
+    --good: greenyellow;
 }
 
 *
@@ -178,11 +179,11 @@ button
 button:hover
 {
     cursor: pointer;
-    color: greenyellow;
+    color: var(--good);
 }
 button:focus
 {
-    color: greenyellow;
+    color: var(--good);
 
 }
 
@@ -268,7 +269,7 @@ input
 }
 input:focus
 {
-    border: 2px solid greenyellow;
+    border: 2px solid var(--good);
 }
 p
 {

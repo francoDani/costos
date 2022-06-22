@@ -23,7 +23,7 @@ const wholeSellers = [
         name: "juli",
         company: "juMignaniMakeup",
         phone: "381-6782369"
-    }
+    },
 ]
 
 let table = document.querySelector(".whole-table__body");
