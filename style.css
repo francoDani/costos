@@ -1,4 +1,4 @@
-@media (max-aspect-ratio: 9/19) {
+@media (min-aspect-ratio: 9/19) {
   .container {
     background-color: red;
   }
