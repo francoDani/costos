@@ -78,24 +78,30 @@ let cleanSections = () =>{
     }
 }
 
+const calculatePyPrice = (price) => {
+    let result = (price*1.2);
+    return result;
+}
 
 let calculatePrice = () =>{
     let invoiceWithTax = document.querySelector("#invoice-amount-wt");
     let invoiceWithTaxBatch = document.querySelector("#product-amount-wt");
     let estimatedGain = document.querySelector("#estimate-gain-wt");
     let unitPrice = document.querySelector ("#unit-price-wt-span");
-    let estimatedPrice = document.querySelector ("#stimate-price-wt-span");    
+    let estimatedPrice = document.querySelector ("#stimate-price-wt-span");
+    let pyPrice = document.getElementById("stimate-price-wt-py-span");
     let errorM = document.querySelector ("#error-with-tax");
 
     if ((invoiceWithTax.value == "") || (invoiceWithTaxBatch.value == "") || (estimatedGain.value == "")){
         errorM.innerHTML = errorMsgForBlank;
-    }else if(invoiceWithTax.value < 0 && invoiceWithTaxBatch.value < 0 && estimatedGain.value < 0) {
+    }else if(invoiceWithTax.value < 0 || invoiceWithTaxBatch.value < 0 || estimatedGain.value < 0) {
         errorM.innerHTML = "Los valores ingresados no pueden ser negativos";        
     }else if (invoiceWithTax.value != " " && invoiceWithTaxBatch.value != " " && estimatedGain.value !=" "){
         let result = (invoiceWithTax.value/invoiceWithTaxBatch.value);
         let resultWithAdd = ((result / 100 * estimatedGain.value)+result);
         unitPrice.innerHTML = "$" + result.toFixed(2);
         estimatedPrice.innerHTML = "$" + resultWithAdd.toFixed(2);
+        pyPrice.innerHTML = calculatePyPrice(resultWithAdd);
         errorM.innerHTML = "";
         invoiceWithTax.focus();
     }
@@ -128,6 +134,7 @@ let calculatePriceWT = () =>{
     let estimatedGainWT = document.querySelector("#estimate-gain");
     let unitPriceSpan = document.querySelector("#unit-price-span");
     let stimatePrice = document.querySelector("#stimate-price-span");
+    let pyPriceWT = document.querySelector("#stimate-price-py-span")
     let error = document.querySelector("#error-msg-in-price");
 
     if (batchAmount.value == "" || productAmount.value == "" || estimatedGainWT.value == "" || taxes == 0){
@@ -142,6 +149,7 @@ let calculatePriceWT = () =>{
     
     unitPriceSpan.innerHTML = "$" + unitPriceWithTaxes.toFixed(2);
     stimatePrice.innerHTML = "$" + sellPrice.toFixed(2);
+    pyPriceWT.innerHTML = "$" + calculatePyPrice(sellPrice)
 
     batchAmount.value = "";
     productAmount.value = "";

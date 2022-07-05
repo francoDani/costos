@@ -51,14 +51,17 @@
         </div>
     </div>
     <div class="container-with-tax">
-        <input type="number" id="invoice-amount-wt" placeholder="Total de la factura">
-        <input type="number" id="product-amount-wt" placeholder="Cantidad de unidades">
-        <input type="number" id="estimate-gain-wt" placeholder="Ganancia estimada">
+        <div class="imput__container">
+            <input type="number" id="invoice-amount-wt" placeholder="Total de la factura">
+            <input type="number" id="product-amount-wt" placeholder="Cantidad de unidades">
+            <input type="number" id="estimate-gain-wt" placeholder="Ganancia estimada">
+        </div>
         <div class="container-with-tax__results">
             <p id="error-with-tax" class="error"></p>
             <button onclick="calculatePrice()">Calculate</button>
             <p id="unit-price-wt">Costo por unidad: <span id="unit-price-wt-span"></span></p>
             <p id="stimate-price-wt">Precio de venta: <span id="stimate-price-wt-span"></span></p>
+            <p id="stimate-price-py">Precio de PedidosYa: <span id="stimate-price-wt-py-span"></span></p>
         </div>
     </div>
     <div class="container-wout-tax">
@@ -80,6 +83,7 @@
                 <button onclick="calculatePriceWT()">Calculate</button>
                 <p id="unit-price">Costo por unidad: <span id="unit-price-span"></span></p>
                 <p id="stimate-price">Precio de venta: <span id="stimate-price-span"></span></p>
+                <p id="stimate-price">Precio de venta: <span id="stimate-price-py-span"></span></p>
             </div>
         </div>
     </div>
